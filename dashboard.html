@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar full-nav">
+    <div class="nav-left">
+      <i class='bx bxs-book-reader logo-icon'></i>
+      <h2>Library Manager</h2>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="{{ url_for('dashboard') }}"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+      <li><a href="{{ url_for('books') }}"><i class='bx bx-book'></i> Books</a></li>
+      <li><a href="{{ url_for('add_book') }}"><i class='bx bx-plus-circle'></i> Add Book</a></li>
+      <li><a href="#"><i class='bx bx-bookmark-alt'></i> Borrowed</a></li>
+      <li><a href="#"><i class='bx bx-user'></i> Users</a></li>
+      <li><a href="{{ url_for('logout') }}"><i class='bx bx-log-out'></i> Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- DASHBOARD CONTENT -->
+  <section class="dashboard-content">
+    <h1 class="page-title">📊 Admin Dashboard</h1>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="icon blue"><i class='bx bx-book'></i></div>
+        <div class="details">
+          <h3>Total Books</h3>
+          <p>{{ total_books }}</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="icon green"><i class='bx bx-user'></i></div>
+        <div class="details">
+          <h3>Registered Users</h3>
+          <p>{{ total_users }}</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="icon orange"><i class='bx bx-bookmark-alt'></i></div>
+        <div class="details">
+          <h3>Return Books</h3>
+          <p>{{ returned }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

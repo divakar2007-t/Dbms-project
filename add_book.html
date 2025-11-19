@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Book</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="navbar">
+    <h3>➕ Add Book</h3>
+    <div>
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('books') }}">Books</a>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Add a New Book</h2>
+    <form method="POST" action="{{ url_for('add_book') }}">
+      <label>Book Title</label>
+      <input type="text" name="title" required>
+
+      <label>Author</label>
+      <input type="text" name="author" required>
+
+      <label>Quantity</label>
+      <input type="number" name="quantity" required min="1">
+
+      <button type="submit">Add Book</button>
+    </form>
+  </div>
+</body>
+</html>
